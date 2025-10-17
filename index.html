@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GR20 Responsable - Randonner sans trace</title>
+    <meta name="description" content="Projet de sensibilisation à la randonnée responsable sur le GR20 en Corse - KEDGE Business School">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            /* Primitive Color Tokens */
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-teal-800: rgba(41, 150, 161, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+
+            /* RGB versions for opacity control */
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-slate-500-rgb: 98, 108, 113;
+            --color-red-500-rgb: 192, 21, 47;
+            --color-red-400-rgb: 255, 84, 89;
+            --color-orange-500-rgb: 168, 75, 47;
+            --color-orange-400-rgb: 230, 129, 97;
+
+            /* Background color tokens (Light Mode) */
+            --color-bg-1: rgba(59, 130, 246, 0.08);
+            --color-bg-2: rgba(245, 158, 11, 0.08);
+            --color-bg-3: rgba(34, 197, 94, 0.08);
+            --color-bg-4: rgba(239, 68, 68, 0.08);
+            --color-bg-5: rgba(147, 51, 234, 0.08);
+            --color-bg-6: rgba(249, 115, 22, 0.08);
+            --color-bg-7: rgba(236, 72, 153, 0.08);
+            --color-bg-8: rgba(6, 182, 212, 0.08);
+
+            /* Semantic Color Tokens (Light Mode) */
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-btn-primary-text: var(--color-cream-50);
+            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-error: var(--color-red-500);
+            --color-success: var(--color-teal-500);
+            --color-warning: var(--color-orange-500);
+            --color-info: var(--color-slate-500);
+            --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+            --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+            /* Custom project colors */
+            --color-mountain-green: #2d5016;
+            --color-mountain-green-light: #4a7c3d;
+            --color-sky-blue: #5b9bd5;
+            --color-earth-beige: #d4a574;
+            
+            /* Typography */
+            --font-family-base: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            --font-size-xs: 11px;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-md: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --font-weight-bold: 600;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            
+            /* Spacing */
+            --space-4: 4px;
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --space-48: 48px;
+            --space-64: 64px;
+            
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-base: 8px;
+            --radius-md: 10px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            line-height: var(--line-height-normal);
+            color: var(--color-text);
+            background-color: var(--color-background);
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-16) var(--space-32);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-mountain-green);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--space-32);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: var(--font-weight-medium);
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--color-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: var(--font-size-xl);
+            cursor: pointer;
+            color: var(--color-text);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(45, 80, 22, 0.7), rgba(45, 80, 22, 0.7)), url('https://pplx-res.cloudinary.com/image/upload/v1758461531/pplx_project_search_images/089bf6d377005131c9fc2e8e207b50647ac110d2.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: var(--space-32);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-24);
+            line-height: var(--line-height-tight);
+        }
+
+        .hero .subtitle {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--space-16);
+            opacity: 0.9;
+        }
+
+        .hero .school {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-32);
+            opacity: 0.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: var(--space-16) var(--space-32);
+            background: var(--color-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius-lg);
+            font-weight: var(--font-weight-semibold);
+            font-size: var(--font-size-lg);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .cta-button:hover {
+            background: var(--color-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+
+        .section {
+            padding: var(--space-64) var(--space-32);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            text-align: center;
+            margin-bottom: var(--space-48);
+            color: var(--color-mountain-green);
+        }
+
+        /* Project Introduction */
+        .project-intro {
+            background: var(--color-bg-3);
+        }
+
+        .project-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-48);
+            align-items: center;
+        }
+
+        .project-text {
+            font-size: var(--font-size-lg);
+            line-height: 1.6;
+        }
+
+        .project-text h3 {
+            color: var(--color-mountain-green);
+            margin-bottom: var(--space-16);
+        }
+
+        .project-text p {
+            margin-bottom: var(--space-16);
+        }
+
+        /* Stats Cards */
+        .stats {
+            background: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-32);
+        }
+
+        .stat-card {
+            background: var(--color-surface);
+            padding: var(--space-32);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-card-border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-number {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            margin-bottom: var(--space-8);
+        }
+
+        .stat-label {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-secondary);
+        }
+
+        /* Problems Section */
+        .problems {
+            background: var(--color-bg-4);
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-48);
+        }
+
+        .problem-card {
+            background: white;
+            padding: var(--space-32);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .problem-card h3 {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--space-24);
+            display: flex;
+            align-items: center;
+            gap: var(--space-12);
+        }
+
+        .problem-card.invisible {
+            border-left: 4px solid var(--color-warning);
+            background: linear-gradient(135deg, #fff, #fffbf0);
+        }
+
+        .problem-card.invisible .discovery {
+            background: var(--color-bg-2);
+            padding: var(--space-16);
+            border-radius: var(--radius-base);
+            margin-bottom: var(--space-24);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-warning);
+        }
+
+        .problem-list {
+            list-style: none;
+        }
+
+        .problem-list li {
+            margin-bottom: var(--space-12);
+            padding-left: var(--space-24);
+            position: relative;
+        }
+
+        .problem-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+
+        /* Best Practices */
+        .practices {
+            background: var(--color-bg-3);
+        }
+
+        .practices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-32);
+        }
+
+        .practice-category {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .practice-header {
+            background: var(--color-mountain-green);
+            color: white;
+            padding: var(--space-24);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .practice-header h3 {
+            display: flex;
+            align-items: center;
+            gap: var(--space-12);
+            font-size: var(--font-size-xl);
+        }
+
+        .practice-content {
+            padding: var(--space-24);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .practice-content.active {
+            max-height: 1000px;
+        }
+
+        .practice-item {
+            margin-bottom: var(--space-20);
+            padding-bottom: var(--space-20);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .practice-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .practice-item h4 {
+            color: var(--color-mountain-green);
+            margin-bottom: var(--space-8);
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-icon.rotated {
+            transform: rotate(180deg);
+        }
+
+        /* Guide Section */
+        .guide {
+            background: white;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: var(--space-48);
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .tab {
+            padding: var(--space-16) var(--space-24);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-secondary);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-32);
+        }
+
+        .equipment-category {
+            background: var(--color-bg-1);
+            padding: var(--space-24);
+            border-radius: var(--radius-lg);
+        }
+
+        .equipment-category h4 {
+            color: var(--color-mountain-green);
+            margin-bottom: var(--space-16);
+        }
+
+        .equipment-list {
+            list-style: none;
+        }
+
+        .equipment-list li {
+            margin-bottom: var(--space-8);
+            padding-left: var(--space-20);
+            position: relative;
+        }
+
+        .equipment-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-success);
+            font-weight: bold;
+        }
+
+        .simple-list {
+            list-style: none;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .simple-list li {
+            background: var(--color-bg-1);
+            padding: var(--space-16);
+            margin-bottom: var(--space-12);
+            border-radius: var(--radius-base);
+            border-left: 4px solid var(--color-primary);
+        }
+
+        /* Results Section */
+        .results {
+            background: var(--color-bg-5);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-32);
+            margin-bottom: var(--space-48);
+        }
+
+        .result-card {
+            background: white;
+            padding: var(--space-24);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .result-card h4 {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-8);
+            font-size: var(--font-size-base);
+        }
+
+        .result-comparison {
+            margin: var(--space-16) 0;
+        }
+
+        .result-bar {
+            background: var(--color-border);
+            height: 8px;
+            border-radius: var(--radius-base);
+            overflow: hidden;
+            margin: var(--space-8) 0;
+        }
+
+        .result-fill {
+            height: 100%;
+            background: var(--color-success);
+            border-radius: var(--radius-base);
+            transition: width 2s ease;
+        }
+
+        .percentage {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-success);
+        }
+
+        .impact-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-16);
+        }
+
+        .impact-list li {
+            background: white;
+            padding: var(--space-20);
+            border-radius: var(--radius-base);
+            display: flex;
+            align-items: center;
+            gap: var(--space-12);
+        }
+
+        .impact-list li::before {
+            content: '✓';
+            color: var(--color-success);
+            font-size: var(--font-size-xl);
+            font-weight: bold;
+        }
+
+        /* Partners Section */
+        .partners {
+            background: white;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-32);
+        }
+
+        .partner-card {
+            background: var(--color-bg-1);
+            padding: var(--space-24);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--color-card-border);
+        }
+
+        .partner-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .partner-logo {
+            width: 60px;
+            height: 60px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-16) auto;
+            color: white;
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-xl);
+        }
+
+        .partner-card h4 {
+            color: var(--color-mountain-green);
+            margin-bottom: var(--space-8);
+        }
+
+        .partner-role {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-12);
+            font-style: italic;
+        }
+
+        .partner-link {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+        }
+
+        .partner-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-mountain-green);
+            color: white;
+            padding: var(--space-64) var(--space-32);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-cta {
+            margin-bottom: var(--space-48);
+        }
+
+        .footer-cta h2 {
+            font-size: var(--font-size-3xl);
+            margin-bottom: var(--space-16);
+        }
+
+        .hashtags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--space-16);
+            margin-bottom: var(--space-32);
+        }
+
+        .hashtag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: var(--space-8) var(--space-16);
+            border-radius: var(--radius-lg);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .footer-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-32);
+            margin-bottom: var(--space-32);
+        }
+
+        .footer-section h4 {
+            margin-bottom: var(--space-16);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-24);
+            margin-bottom: var(--space-32);
+        }
+
+        .social-link {
+            color: white;
+            font-size: var(--font-size-xl);
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--color-sky-blue);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: var(--space-32);
+                box-shadow: var(--shadow-lg);
+                border-top: 1px solid var(--color-border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                background-attachment: scroll;
+            }
+
+            .project-content {
+                grid-template-columns: 1fr;
+            }
+
+            .problems-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hashtags {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-info {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .section {
+                padding: var(--space-48) var(--space-16);
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: var(--space-12) var(--space-16);
+            }
+
+            .hero-content {
+                padding: var(--space-16);
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .practices-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">🏔️ GR20 Responsable</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#problematiques">Problématiques</a></li>
+                <li><a href="#pratiques">Bonnes Pratiques</a></li>
+                <li><a href="#guide">Guide</a></li>
+                <li><a href="#resultats">Résultats</a></li>
+                <li><a href="#partenaires">Partenaires</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1>GR20 Responsable</h1>
+            <p class="subtitle">Randonner sans trace</p>
+            <p class="school">Projet KEDGE Business School - Pro-Act</p>
+            <a href="#projet" class="cta-button">Découvrir le projet</a>
+        </div>
+    </section>
+
+    <main>
+        <section id="projet" class="section project-intro">
+            <div class="container">
+                <h2 class="section-title">Le Projet</h2>
+                <div class="project-content">
+                    <div class="project-text">
+                        <h3>Notre Mission</h3>
+                        <p>Le GR20 est l'un des sentiers de grande randonnée les plus difficiles d'Europe, traversant la Corse du Nord au Sud sur 180 km. Notre projet allie performance sportive et engagement environnemental en sensibilisant à la protection de cet espace naturel exceptionnel.</p>
+                        <h3>Objectif</h3>
+                        <p>Promouvoir un tourisme responsable et durable en montagne à travers la sensibilisation aux bonnes pratiques et la réduction de l'impact des randonneurs.</p>
+                    </div>
+                    <div class="project-visual">
+                        <img src="https://pplx-res.cloudinary.com/image/upload/v1760684433/pplx_project_search_images/a06d96ed7829ea83507c527a7f1921d38dc762a3.png" alt="Randonnée écoresponsable" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section stats">
+            <div class="container">
+                <h2 class="section-title">Chiffres Clés</h2>
+                <div class="stats-grid">
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">180</div>
+                        <div class="stat-label">kilomètres parcourus</div>
+                    </div>
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">3300</div>
+                        <div class="stat-label">vues cumulées</div>
+                    </div>
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">kg de déchets collectés</div>
+                    </div>
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">associations partenaires</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="problematiques" class="section problems">
+            <div class="container">
+                <h2 class="section-title">Problématiques Environnementales</h2>
+                <div class="problems-grid">
+                    <div class="problem-card visible">
+                        <h3>🗑️ Pollution Visible</h3>
+                        <ul class="problem-list">
+                            <li>Déchets abandonnés dans les refuges et sur les sentiers</li>
+                            <li>Bouteilles plastiques et emballages alimentaires</li>
+                            <li>Mégots de cigarettes et papiers toilette</li>
+                            <li>Restes alimentaires laissés sur place</li>
+                        </ul>
+                    </div>
+                    <div class="problem-card invisible">
+                        <h3>👁️ Pollution Invisible</h3>
+                        <div class="discovery">
+                            <strong>Découverte majeure du projet :</strong> les impacts moins visibles mais tout aussi dévastateurs
+                        </div>
+                        <ul class="problem-list">
+                            <li>Sentiers non-balisés : multiplication des traces parallèles causant l'érosion</li>
+                            <li>Bivouac illégal dans des zones protégées ou fragiles</li>
+                            <li>Dérangement de la faune sauvage (stress animal, perturbation reproduction)</li>
+                            <li>Érosion accélérée des sols par le hors-piste</li>
+                            <li>Pollution chimique : produits non-biodégradables près des cours d'eau</li>
+                            <li>Piétinement de la flore endémique rare</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pratiques" class="section practices">
+            <div class="container">
+                <h2 class="section-title">Bonnes Pratiques</h2>
+                <div class="practices-grid">
+                    <div class="practice-category">
+                        <div class="practice-header" onclick="togglePractice(0)">
+                            <h3>🎒 Avant de Partir</h3>
+                            <i class="fas fa-chevron-down toggle-icon" id="toggle-0"></i>
+                        </div>
+                        <div class="practice-content" id="content-0">
+                            <div class="practice-item">
+                                <h4>Alléger son sac</h4>
+                                <p>Poids optimal : 8-12 kg maximum (eau comprise)</p>
+                            </div>
+                            <div class="practice-item">
+                                <h4>Matériel essentiel</h4>
+                                <p>Sac 50-60L, 2-3 tenues techniques, polaire, veste imperméable</p>
+                            </div>
+                            <div class="practice-item">
+                                <h4>Repas intelligents</h4>
+                                <p>Privilégier les repas déshydratés, reconditionner pour réduire les emballages</p>
+                            </div>
+                            <div class="practice-item">
+                                <h4>Check-list sécurité</h4>
+                                <p>Lampe frontale, trousse de secours, couteau suisse, carte</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-category">
+                        <div class="practice-header" onclick="togglePractice(1)">
+                            <h3>🏔️ Sur le Terrain</h3>
+                            <i class="fas fa-chevron-down toggle-icon" id="toggle-1"></i>
+                        </div>
+                        <div class="practice-content" id="content-1">
+                            <div class="practice-item">
+                                <h4>Gestion de l'eau</h4>
+                                <p>Gourde filtrante ou pastilles de purification - zéro plastique</p>
+                            </div>
+                            <div class="practice-item">
+                                <h4>Hygiène écoresponsable</h4>
+                                <p>Produits biodégradables uniquement, se laver à 50m des cours d'eau</p>
+                            </div>
+                            <div class="practice-item">
+                                <h4>Cuisine responsable</h4>
+                                <p>Réchaud à gaz (jamais de feu), popote légère, réduire les déchets</p>
+                            </div>
+                            <div class="practice-item">
+                                <h4>Bivouac autorisé uniquement</h4>
+                                <p>Camper dans les zones désignées près des refuges</p>
+                            </div>
+                            <div class="practice-item">
+                                <h4>Sentiers balisés</h4>
+                                <p>Suivre le marquage rouge et blanc - aucun raccourci</p>
+                            </div>
+                            <div class="practice-item">
+                                <h4>Zéro déchet</h4>
+                                <p>Ramener TOUS ses déchets, même organiques, jusqu'aux points de collecte</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-category">
+                        <div class="practice-header" onclick="togglePractice(2)">
+                            <h3>🌿 Respect de la Nature</h3>
+                            <i class="fas fa-chevron-down toggle-icon" id="toggle-2"></i>
+                        </div>
+                        <div class="practice-content" id="content-2">
+                            <div class="practice-item">
+                                <h4>Observer les animaux à distance</h4>
+                                <p>Ne jamais nourrir la faune sauvage</p>
+                            </div>
+                            <div class="practice-item">
+                                <h4>Flore protégée</h4>
+                                <p>Ne pas cueillir de plantes (flore protégée)</p>
+                            </div>
+                            <div class="practice-item">
+                                <h4>Faune locale</h4>
+                                <p>Respecter les cochons sauvages et brebis corses</p>
+                            </div>
+                            <div class="practice-item">
+                                <h4>Minimiser le bruit</h4>
+                                <p>Ne pas déranger la faune dans son habitat naturel</p>
+                            </div>
+                            <div class="practice-item">
+                                <h4>Sentiers balisés</h4>
+                                <p>Rester sur les sentiers pour éviter l'érosion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="guide" class="section guide">
+            <div class="container">
+                <h2 class="section-title">Guide Pratique</h2>
+                <div class="tabs">
+                    <button class="tab active" onclick="showTab(0)">Équipement</button>
+                    <button class="tab" onclick="showTab(1)">Conseils Eau</button>
+                    <button class="tab" onclick="showTab(2)">Gestion Déchets</button>
+                </div>
+
+                <div class="tab-content active" id="tab-0">
+                    <div class="equipment-grid">
+                        <div class="equipment-category">
+                            <h4>Sac et portage</h4>
+                            <ul class="equipment-list">
+                                <li>Sac à dos 50-60L</li>
+                                <li>Housse de pluie</li>
+                                <li>Sac poubelle réutilisable</li>
+                            </ul>
+                        </div>
+                        <div class="equipment-category">
+                            <h4>Vêtements</h4>
+                            <ul class="equipment-list">
+                                <li>2-3 tenues techniques</li>
+                                <li>Polaire chaude</li>
+                                <li>Veste imperméable respirante</li>
+                                <li>Chaussures rodées</li>
+                            </ul>
+                        </div>
+                        <div class="equipment-category">
+                            <h4>Cuisine</h4>
+                            <ul class="equipment-list">
+                                <li>Réchaud à gaz + cartouches</li>
+                                <li>Popote légère</li>
+                                <li>Couverts réutilisables</li>
+                                <li>Gourde filtrante 2L</li>
+                            </ul>
+                        </div>
+                        <div class="equipment-category">
+                            <h4>Hygiène</h4>
+                            <ul class="equipment-list">
+                                <li>Savon biodégradable</li>
+                                <li>Dentifrice solide</li>
+                                <li>Papier WC biodégradable</li>
+                                <li>Lingettes éco</li>
+                            </ul>
+                        </div>
+                        <div class="equipment-category">
+                            <h4>Sécurité</h4>
+                            <ul class="equipment-list">
+                                <li>Lampe frontale + piles</li>
+                                <li>Trousse premiers secours</li>
+                                <li>Couteau suisse</li>
+                                <li>Sifflet</li>
+                                <li>Carte IGN</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="tab-1">
+                    <ul class="simple-list">
+                        <li>Gourdes filtrantes recommandées : LifeStraw, Sawyer, Katadyn</li>
+                        <li>Alternative : pastilles Micropur ou Aquatabs</li>
+                        <li>Toujours filtrer/purifier l'eau des sources</li>
+                        <li>Prévoir 2-3L de capacité totale</li>
+                    </ul>
+                </div>
+
+                <div class="tab-content" id="tab-2">
+                    <ul class="simple-list">
+                        <li>Sac poubelle dédié dans le sac principal</li>
+                        <li>Compacter les déchets pour optimiser l'espace</li>
+                        <li>Ramener même les déchets organiques</li>
+                        <li>Participer au ramassage collectif</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="resultats" class="section results">
+            <div class="container">
+                <h2 class="section-title">Résultats Exceptionnels - 2024</h2>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h4>1000 vues cumulées</h4>
+                        <div class="result-comparison">
+                            <div class="result-bar">
+                                <div class="result-fill" data-width="100%"></div>
+                            </div>
+                            <div>Résultat: <strong>3300 vues</strong></div>
+                        </div>
+                        <div class="percentage">330%</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>10-20 kg déchets ramassés</h4>
+                        <div class="result-comparison">
+                            <div class="result-bar">
+                                <div class="result-fill" data-width="100%"></div>
+                            </div>
+                            <div>Résultat: <strong>15 kg collectés</strong></div>
+                        </div>
+                        <div class="percentage">100%</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>5 associations partenaires</h4>
+                        <div class="result-comparison">
+                            <div class="result-bar">
+                                <div class="result-fill" data-width="100%"></div>
+                            </div>
+                            <div>Résultat: <strong>5 associations confirmées</strong></div>
+                        </div>
+                        <div class="percentage">100%</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>8-10 vidéos</h4>
+                        <div class="result-comparison">
+                            <div class="result-bar">
+                                <div class="result-fill" data-width="100%"></div>
+                            </div>
+                            <div>Résultat: <strong>10 vidéos produites</strong></div>
+                        </div>
+                        <div class="percentage">100%</div>
+                    </div>
+                </div>
+
+                <h3 style="text-align: center; margin-bottom: var(--space-32); color: var(--color-mountain-green);">Impact Réalisé</h3>
+                <ul class="impact-list">
+                    <li>3300+ personnes sensibilisées en ligne</li>
+                    <li>15 kg de déchets retirés de la montagne</li>
+                    <li>Découverte et documentation de la "pollution invisible"</li>
+                    <li>5 partenariats associatifs établis</li>
+                    <li>10 vidéos éducatives diffusées</li>
+                    <li>Expertise terrain authentique développée</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="partenaires" class="section partners">
+            <div class="container">
+                <h2 class="section-title">Associations Partenaires</h2>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-logo">SF</div>
+                        <h4>Surfrider Foundation Europe</h4>
+                        <p class="partner-role">Ressources éducatives et guide du ramasseur</p>
+                        <p>Kit de collecte gratuit, Ocean Campus</p>
+                        <a href="https://initiativesoceanes.org" target="_blank" class="partner-link">Découvrir →</a>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo">TR</div>
+                        <h4>Trail Runner Foundation</h4>
+                        <p class="partner-role">Guide des bonnes pratiques trail</p>
+                        <p>Données d'impact, expertise montagne</p>
+                        <a href="https://www.trailrunnerfoundation.com" target="_blank" class="partner-link">Découvrir →</a>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo">MW</div>
+                        <h4>Mountain Wilderness France</h4>
+                        <p class="partner-role">Experts de la protection montagne</p>
+                        <p>Conseils techniques, sensibilisation</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo">FNE</div>
+                        <h4>France Nature Environnement</h4>
+                        <p class="partner-role">Fédération de 6000 associations locales</p>
+                        <p>Réseau national, expertise biodiversité</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo">FFR</div>
+                        <h4>Fédération Française de la Randonnée</h4>
+                        <p class="partner-role">Entretien et développement des sentiers</p>
+                        <p>Expertise GR, bonnes pratiques officielles</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-cta">
+                <h2>Rejoignez le Mouvement</h2>
+                <p>Partagez vos bonnes pratiques</p>
+            </div>
+            
+            <div class="hashtags">
+                <span class="hashtag">#GR20Responsable</span>
+                <span class="hashtag">#RandonneursSansTrace</span>
+                <span class="hashtag">#ProtégonsLaMontagne</span>
+            </div>
+
+            <div class="footer-info">
+                <div class="footer-section">
+                    <h4>Projet</h4>
+                    <p>Durée: 10 jours</p>
+                    <p>Distance: 180 km</p>
+                    <p>Participants: 3 randonneurs</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Période</h4>
+                    <p>Juin 2024</p>
+                    <p>Budget: 1750€</p>
+                    <p>Émissions CO2: 236 kg (compensées)</p>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <p style="margin-top: var(--space-32); opacity: 0.8;">Projet réalisé par Basile - KEDGE Business School 2024</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation mobile
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    const icon = mobileToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Accordion functionality for practices
+        function togglePractice(index) {
+            const content = document.getElementById(`content-${index}`);
+            const toggle = document.getElementById(`toggle-${index}`);
+            
+            content.classList.toggle('active');
+            toggle.classList.toggle('rotated');
+        }
+
+        // Tab functionality for guide
+        function showTab(index) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(`tab-${index}`).classList.add('active');
+            document.querySelectorAll('.tab')[index].classList.add('active');
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animate result bars
+        const resultObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const fills = entry.target.querySelectorAll('.result-fill');
+                    fills.forEach(fill => {
+                        const width = fill.getAttribute('data-width');
+                        setTimeout(() => {
+                            fill.style.width = width;
+                        }, 500);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observe results section
+        const resultsSection = document.querySelector('.results');
+        if (resultsSection) {
+            resultObserver.observe(resultsSection);
+        }
+
+        // Initialize first accordion open
+        document.addEventListener('DOMContentLoaded', () => {
+            togglePractice(0);
+        });
+    </script>
+</body>
+</html>
